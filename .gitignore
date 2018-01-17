@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+/.vs/tasks_pool/v15
+/build
+/CMakeFiles
+/ZERO_CHECK.vcxproj.filters
+/ZERO_CHECK.vcxproj
+/tasks_pool.sln
+/cmake_install.cmake
+/CMakeCache.txt
+/ALL_BUILD.vcxproj.filters
+/ALL_BUILD.vcxproj
