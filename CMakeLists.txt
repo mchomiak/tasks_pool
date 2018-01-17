@@ -3,4 +3,4 @@ project (tasks_pool)
 include_directories(./src)
 
 file(GLOB SOURCES "./src/*.cpp")
-add_executable(../build/tp ${SOURCES})
+add_executable(./build/tp ${SOURCES})
