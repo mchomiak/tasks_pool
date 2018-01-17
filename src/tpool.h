@@ -22,7 +22,6 @@ private:
 	uint32_t	no_threads = 1;	// number of threads
 	list_t		tasks;			// list of tasks to execute.			
 	threads_t	threads;		// work threads
-
 };
 
 } // namespace tpool
