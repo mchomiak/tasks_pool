@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdint>
 #include <exception>
-
+#include <chrono>
 #include "tpool.h"
 
 using namespace std;
@@ -20,15 +20,12 @@ namespace tasks_pool
 
 		for (auto& t : threads) {
 			t = thread(std::bind(tpool::thread_f, ref(*this)));
-			std::this_thread::sleep_for(50ms);
+			std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		}
-		
-		cout << "number of threads created: " << threads.size() << endl;
 	}
 
 tpool::~tpool()
 {
-	cout << "!!!!!!!!!!!!!!!! tpool::~tpool()" << endl;
 	{
 		std::lock_guard<std::mutex> guard(tpool::next_task_m);
 		finishing = true;
@@ -36,7 +33,6 @@ tpool::~tpool()
 	}
 	for (auto& t : threads)
 		t.join();
-	cout << "!!!!!!!!!!!!!!!! tpool::~tpool() end" << endl;
 }
 
 void tpool::add(task_t t)
@@ -47,19 +43,19 @@ void tpool::add(task_t t)
 	}
 	tpool::next_task_cv.notify_one();
 	++no_tasks_added;
-	cout << "Added new task. Number of tasks in queue: " << tasks.size() << endl;
+	//cout << "Added new task. Number of tasks in queue: " << tasks.size() << endl;
 }
 
 void tpool::wait_for_all()
 {
-	cerr << "waiting for all" << endl;
+	//cerr << "waiting for all" << endl;
 	while (true) {
 		std::unique_lock<std::mutex> guard(tpool::next_task_m);
 		tpool::task_done_cv.wait(guard);
 		if (tasks.size() == 0 && in_progress == 0)
 			break;
 	}
-	cerr << "waiting for all done!" << endl;
+	//cerr << "waiting for all done!" << endl;
 }
 
 void tpool::thread_f(tpool& tp)

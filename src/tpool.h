@@ -6,6 +6,7 @@
 #include <thread>
 #include <mutex>
 #include <atomic>
+#include <condition_variable>
 
 namespace tasks_pool
 {
@@ -45,9 +46,9 @@ public:
 // fields
 private:
 	tasks_t							tasks;				// list of tasks to execute
-	std::atomic<std::uint64_t>		no_tasks_added = 0;	// number of tasks added to the queue
+	std::atomic<std::uint64_t>		no_tasks_added{0};	// number of tasks added to the queue
 	std::mutex						tasks_guard;		// mutex to guard operations of tasks list
-	std::atomic<std::uint32_t>		in_progress = 0;	// number of tasks in progress
+	std::atomic<std::uint32_t>		in_progress{0};	// number of tasks in progress
 
 	threads_t						threads;			// work threads
 	bool							finishing = false;
@@ -58,7 +59,7 @@ private:
 
 // static fields
 private:
-	static std::mutex				next_task_m;
+	static std::mutex		next_task_m;
 	static std::condition_variable	next_task_cv;
 	static std::condition_variable	task_done_cv;
 };
