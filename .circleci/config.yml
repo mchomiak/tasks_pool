@@ -9,7 +9,10 @@ jobs:
       - run:
           name: build
           command: cmake .; make
-      - test
+      - run
+          name: test
+          command: ./build/tp
+      
 test:
   override:
     - ./build/tp 
