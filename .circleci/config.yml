@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: cmake
-          command: cmake.
+          command: cmake .
       - run:
           name: make
           command: make
