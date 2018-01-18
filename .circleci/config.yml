@@ -9,7 +9,7 @@ jobs:
       - run:
           name: build
           command: cmake .; make
-      - run
+      - run:
           name: test
           command: ./build/tp
       
