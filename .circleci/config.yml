@@ -1,7 +1,7 @@
 version: 2
 
 dependencies:
-    pre:
+    override:
         - sudo apt-get update 
         - sudo apt-get install cmake make
 jobs:
