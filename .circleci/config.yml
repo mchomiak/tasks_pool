@@ -1,4 +1,9 @@
 version: 2
+
+dependencies:
+    pre:
+        - sudo apt-get update 
+        - sudo apt-get install cmake make
 jobs:
   build:
     docker:
@@ -6,9 +11,6 @@ jobs:
     steps:
       - checkout
       - run:
-      - dependencies:
-          pre:
-              - sudo apt-get update; sudo apt-get install cmake make
           name: cmake
           command: cmake .
       - run:
