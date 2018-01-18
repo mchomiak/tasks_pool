@@ -15,10 +15,10 @@ int main(int arc, char** argv)
 
 		for (int i = 0; i < 10; i++)
 			tp.add([=]() {
-			cerr << "    starting " << i << "..." << endl;
+			cerr <<"starting " << i << "..." << endl;
 			srand(time(nullptr));
 			std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 1000));
-			cerr << "    finishing " << i << "." << endl;
+			cerr << "finishing " << i << "." << endl;
 		});
 		tp.wait_for_all();
 	}
