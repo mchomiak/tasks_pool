@@ -1,0 +1,18 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: tatsy/ubuntu-cxx 
+    steps:
+      - checkout
+      - run:
+          name: build
+          command: cmake .; make
+      - run:
+          name: test
+          command: ./build/tp
+      
+test:
+  override:
+    - ./build/tp 
