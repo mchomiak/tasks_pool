@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: madduci/docker-ubuntu-cpp:gcc-6 
+      - image: tatsy/ubuntu-cxx 
     steps:
       - checkout
       - run:
