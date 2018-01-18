@@ -5,8 +5,12 @@ jobs:
       - image: debian:stretch
     steps:
       - checkout
-      - compile:
-          override: cmake . & make
+      - run:
+          name: cmake
+          command: cmake.
+      - run:
+          name: make
+          command: make
       - run:
 	  name: run
           command: ./build/tp
