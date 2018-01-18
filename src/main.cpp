@@ -24,7 +24,6 @@ int main(int arc, char** argv)
 	}
 
 	cout << "This is the end!" << endl;
-	cin.get();
 	return 0;
 }
  
