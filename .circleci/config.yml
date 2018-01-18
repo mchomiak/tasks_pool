@@ -1,9 +1,10 @@
 version: 2
 
 dependencies:
-    override:
-        - sudo apt-get update 
-        - sudo apt-get install cmake make
+  pre:
+    - sudo apt-get update 
+    - sudo apt-get install cmake make
+
 jobs:
   build:
     docker:
