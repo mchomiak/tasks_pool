@@ -1,9 +1,10 @@
 version: 2
 
+dependencies:
+  pre:
+    - sudo apt-get install cmake make
+
 jobs:
-  dependencies:
-    pre:
-      - sudo apt-get install cmake make
   build:
     docker:
       - image: debian:stretch
