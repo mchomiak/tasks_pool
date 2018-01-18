@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: gcc:latest 
+      - image: madduci/docker-ubuntu-cpp:gcc-6 
     steps:
       - checkout
       - run:
