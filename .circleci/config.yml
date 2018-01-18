@@ -14,4 +14,3 @@ jobs:
       - run:
 	  name: run
           command: ./build/tp
-
