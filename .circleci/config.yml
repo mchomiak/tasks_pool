@@ -7,8 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: cmake
-          command: cmake .
-      - run:
-          name: make
-          command: make
+          name: build
+          command: cmake .; make
+  test:
+    post:
+      - ./build/tp
+    
