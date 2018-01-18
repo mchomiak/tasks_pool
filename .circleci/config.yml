@@ -11,6 +11,3 @@ jobs:
       - run:
           name: make
           command: make
-      - run:
-	  name: run
-          command: ./build/tp
