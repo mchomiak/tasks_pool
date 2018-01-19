@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: tatsy/ubuntu-cxx 
+      - image: chomichdock/ubuntu14.04-cxx-boost 
     steps:
       - checkout
       - run:
@@ -11,8 +11,8 @@ jobs:
           command: cmake .; make
       - run:
           name: test
-          command: ./build/tp
+          command: ./build/bin/test
       
 test:
   override:
-    - ./build/tp 
+    - ./build/bin/test 
