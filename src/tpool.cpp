@@ -48,14 +48,19 @@ void tpool::add(task_t t)
 
 void tpool::wait_for_all()
 {
-	//cerr << "waiting for all" << endl;
 	while (true) {
 		std::unique_lock<std::mutex> guard(tpool::next_task_m);
-		tpool::task_done_cv.wait(guard);
-		if (tasks.size() == 0 && in_progress == 0)
+		
+		//check if there is anything to wait for
+		if(tasks.size() == 0 && in_progress == 0)
 			break;
+		else {
+			// there are still some tasks to be finished
+			tpool::task_done_cv.wait(guard);
+			if (tasks.size() == 0 && in_progress == 0)
+				break;
+		}
 	}
-	//cerr << "waiting for all done!" << endl;
 }
 
 void tpool::thread_f(tpool& tp)

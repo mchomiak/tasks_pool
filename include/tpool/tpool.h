@@ -22,7 +22,7 @@ private:
 
 // constructors
 public:
-	tpool(uint32_t no_threads);
+	tpool(uint32_t no_threads = 1);
 	~tpool();
 
 // methods
