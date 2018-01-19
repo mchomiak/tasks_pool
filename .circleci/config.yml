@@ -15,4 +15,4 @@ jobs:
       
 test:
   override:
-    - ./build/tp 
+    - ./build/bin/test 
