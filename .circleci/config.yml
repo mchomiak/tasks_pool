@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: chomichdock/ubunut14.04-cxx-boost 
+      - image: chomichdock/ubuntu14.04-cxx-boost 
     steps:
       - checkout
       - run:
