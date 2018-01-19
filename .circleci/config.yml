@@ -11,7 +11,7 @@ jobs:
           command: cmake .; make
       - run:
           name: test
-          command: ./build/tp
+          command: ./build/test
       
 test:
   override:
