@@ -21,7 +21,7 @@ BOOST_AUTO_TEST_CASE( tpool_get_no_threads )
 
 	{
 		tpool tp { 10 };
-		BOOST_CHECK(tp.get_no_threads() == 9);
+		BOOST_CHECK(tp.get_no_threads() == 10);
 	}
 
 	{
